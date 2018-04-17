@@ -19,16 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-k1-Z5j" customClass="PieView" customModule="piechart" customModuleProvider="target">
-                                <rect key="frame" x="46" y="192" width="282" height="303"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="37" y="193" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="303" id="Arh-0D-hfx"/>
-                                    <constraint firstAttribute="width" constant="282" id="SHr-aQ-YuK"/>
+                                    <constraint firstAttribute="height" constant="300" id="Arh-0D-hfx"/>
+                                    <constraint firstAttribute="width" constant="300" id="SHr-aQ-YuK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
-                                        <color key="value" red="1" green="0.3017578125" blue="0.3049587674" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="1" green="0.50979275170000005" blue="0.60734049479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="profile"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -45,4 +46,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile" width="503" height="336"/>
+    </resources>
 </document>
