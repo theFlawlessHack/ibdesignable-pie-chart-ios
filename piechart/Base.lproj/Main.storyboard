@@ -29,7 +29,19 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
                                         <color key="value" red="1" green="0.50979275170000005" blue="0.60734049479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="ringThickness">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="ringColor">
+                                        <color key="value" red="0.76084761820000002" green="1" blue="0.93745337289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="ringProgress">
+                                        <real key="value" value="37"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="profile"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="percentagePosition">
+                                        <real key="value" value="150"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

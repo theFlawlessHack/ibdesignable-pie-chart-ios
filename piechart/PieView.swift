@@ -44,6 +44,49 @@ class PieView: UIView {
     func createChart() {
         layoutBackgroundLayer()
         layoutBackgroundImageLayer()
+        createPie()
+        updateLayerProperties()
+    }
+    
+    func createPie() {
+        if ringProgress == 0 {
+            if ringLayer != nil {
+                ringLayer.strokeEnd = 0
+            }
+        }
+        
+        if ringLayer == nil {
+            ringLayer = CAShapeLayer()
+            let inset = ringThickness / 2
+            let rectangle = self.bounds.insetBy(dx: inset, dy: inset)
+            let path = UIBezierPath(ovalIn: rectangle)
+            
+            ringLayer.transform = CATransform3DMakeRotation(CGFloat(-(M_PI_2)), 0, 0, 1)
+            ringLayer.strokeColor = ringColor.cgColor
+            ringLayer.path = path.cgPath
+            ringLayer.fillColor = nil
+            ringLayer.lineWidth = ringThickness
+            ringLayer.strokeStart = 0
+            
+            layer.addSublayer(ringLayer)
+        }
+        
+        ringLayer.strokeEnd = ringProgress / 100
+        ringLayer.frame = layer.bounds
+        
+        if percentageLayer == nil {
+            percentageLayer = CATextLayer()
+            percentageLayer.font = UIFont(name: "HelveticaNeue-Bold", size: 80)
+            percentageLayer.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: percentageLayer.fontSize + 10)
+            percentageLayer.position = CGPoint(x: bounds.midX, y: percentagePosition)
+            percentageLayer.string = "\(Int(ringProgress))%"
+            percentageLayer.alignmentMode = kCAAlignmentCenter
+            percentageLayer.foregroundColor = percentageColor.cgColor
+            percentageLayer.contentsScale = UIScreen.main.scale
+            
+            layer.addSublayer(percentageLayer)
+        }
+        
     }
     
     func layoutBackgroundLayer() {
@@ -87,6 +130,25 @@ class PieView: UIView {
         if backgroundImageLayer != nil {
             if let image = backgroundImage {
                 backgroundImageLayer.contents = image.cgImage
+            }
+        }
+        
+        // ring layer
+        if ringLayer != nil {
+            ringLayer.strokeEnd = ringProgress / 100
+            ringLayer.strokeColor = ringColor.cgColor
+            ringLayer.lineWidth = ringThickness
+        }
+        
+        // percentage layer
+        if percentageLayer != nil {
+            if showPercentage {
+                percentageLayer.opacity = 1
+                percentageLayer.string = "\(Int(ringProgress))%"
+                percentageLayer.position = CGPoint(x: bounds.midX, y: percentagePosition)
+                percentageLayer.foregroundColor = percentageColor.cgColor
+            } else {
+                percentageLayer.opacity = 0
             }
         }
     }
